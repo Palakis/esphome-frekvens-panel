@@ -33,8 +33,10 @@ esphome:
 
 external_components:
   - source:
-      type: local
-      path: <path of directory containing frekvens_panel>
+      type: git
+      url: https://github.com/Palakis/esphome-frekvens-panel
+      ref: master
+    components: [ frekvens_panel ]  
 
 light:
   - platform: monochromatic
