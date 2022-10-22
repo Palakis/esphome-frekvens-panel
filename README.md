@@ -25,11 +25,11 @@ esphome:
   platformio_options:
     upload_speed: 115200
     lib_deps:
-      - me-no-dev/ESPAsyncTCP
-      - adafruit/Adafruit GFX Library   # Required for FrekvensPanel.
-      - Adafruit BusIO                  # Required by GFX Library.
       - Wire                            # Also required by GFX.
       - SPI                             # Also required by GFX.
+      - adafruit/Adafruit GFX Library   # Required for FrekvensPanel.
+      - Adafruit BusIO                  # Required by GFX Library.
+      - me-no-dev/ESPAsyncTCP
 
 external_components:
   - source:
