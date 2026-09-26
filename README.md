@@ -36,8 +36,7 @@ wifi:
   password: !secret wifi_password
 
 external_components:
-  - source:
-      type: local
+  - source: github://Palakis/esphome-frekvens-panel
     components: [frekvens_panel]
 
 light:
