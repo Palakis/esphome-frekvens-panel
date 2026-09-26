@@ -10,11 +10,7 @@
 namespace esphome {
 namespace frekvenspanel {
 
-#if ESPHOME_VERSION_CODE >= VERSION_CODE(2023, 12, 0)
 class Panel : public display::DisplayBuffer {
-#else
-class Panel : public PollingComponent, public display::DisplayBuffer {
-#endif  // VERSION_CODE(2023, 12, 0)
  public:
   int p_latch;
   int p_clock;
