@@ -23,7 +23,7 @@ external_components:
     components: [frekvens_panel]
 
 esphome:
-  name: frekvens8266-weather
+  name: frekvens-esp32-weather
   platformio_options:
     upload_speed: 115200
     lib_deps:
@@ -32,12 +32,17 @@ esphome:
       - adafruit/Adafruit BusIO # Required by GFX Library.
       - adafruit/Adafruit GFX Library # Required for FrekvensPanel.
 
-esp8266:
-  board: d1_mini
+esp32:
+  board: wemos_d1_mini32
+  framework:
+    type: arduino
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
+
+# Enable logging
+logger:
 
 light:
   - platform: monochromatic
@@ -46,11 +51,11 @@ light:
     restore_mode: RESTORE_DEFAULT_ON
 
 output:
-  - platform: esp8266_pwm
+  - platform: ledc
     # Enables brightness control.
     id: matrix_brightness
     pin:
-      number: GPIO14
+      number: GPIO16
       inverted: True
 
 time:
