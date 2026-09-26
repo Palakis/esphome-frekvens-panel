@@ -34,15 +34,13 @@ esphome:
 
 esp32:
   board: wemos_d1_mini32
+  toolchain: platformio
   framework:
     type: arduino
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
-# Enable logging
-logger:
 
 light:
   - platform: monochromatic
