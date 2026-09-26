@@ -27,7 +27,6 @@ esphome:
       - SPI # Required by GFX Library.
       - adafruit/Adafruit BusIO # Required by GFX Library.
       - adafruit/Adafruit GFX Library # Required for FrekvensPanel.
-      - me-no-dev/ESPAsyncTCP
 
 esp8266:
   board: d1_mini
