@@ -18,6 +18,10 @@ Currently there is a dependency upon Adafruit GFX library. In your esphome confi
 Here is a short config to demonstrate the usage to display time on panel:
 
 ```yaml
+external_components:
+  - source: github://Palakis/esphome-frekvens-panel
+    components: [frekvens_panel]
+
 esphome:
   name: frekvens8266-weather
   platformio_options:
@@ -34,10 +38,6 @@ esp8266:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
-external_components:
-  - source: github://Palakis/esphome-frekvens-panel
-    components: [frekvens_panel]
 
 light:
   - platform: monochromatic
