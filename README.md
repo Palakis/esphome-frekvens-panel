@@ -23,10 +23,10 @@ esphome:
   platformio_options:
     upload_speed: 115200
     lib_deps:
-      - Wire # Also required by GFX.
-      - SPI # Also required by GFX.
+      - Wire # Required by GFX Library.
+      - SPI # Required by GFX Library.
+      - adafruit/Adafruit BusIO # Required by GFX Library.
       - adafruit/Adafruit GFX Library # Required for FrekvensPanel.
-      - Adafruit BusIO # Required by GFX Library.
       - me-no-dev/ESPAsyncTCP
 
 esp8266:
@@ -38,9 +38,7 @@ wifi:
 
 external_components:
   - source:
-      type: git
-      url: https://github.com/Palakis/esphome-frekvens-panel
-      ref: master
+      type: local
     components: [frekvens_panel]
 
 light:
