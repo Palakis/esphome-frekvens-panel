@@ -20,27 +20,32 @@ Here is a short config to demonstrate the usage to display time on panel:
 ```yaml
 esphome:
   name: frekvens8266-weather
-  platform: ESP8266
-  board: d1_mini
   platformio_options:
     upload_speed: 115200
     lib_deps:
-      - Wire                            # Also required by GFX.
-      - SPI                             # Also required by GFX.
-      - adafruit/Adafruit GFX Library   # Required for FrekvensPanel.
-      - Adafruit BusIO                  # Required by GFX Library.
+      - Wire # Also required by GFX.
+      - SPI # Also required by GFX.
+      - adafruit/Adafruit GFX Library # Required for FrekvensPanel.
+      - Adafruit BusIO # Required by GFX Library.
       - me-no-dev/ESPAsyncTCP
+
+esp8266:
+  board: d1_mini
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
 external_components:
   - source:
       type: git
       url: https://github.com/Palakis/esphome-frekvens-panel
       ref: master
-    components: [ frekvens_panel ]  
+    components: [frekvens_panel]
 
 light:
   - platform: monochromatic
-    name: 'Brightness'
+    name: "Brightness"
     output: matrix_brightness
     restore_mode: RESTORE_DEFAULT_ON
 
@@ -55,10 +60,10 @@ output:
 time:
   - platform: sntp
     id: ntp_time
-    timezone: 'Europe/Paris'
+    timezone: "Europe/Paris"
 
 font:
-  - file: "04B03.ttf"
+  - file: "04B03.ttf" # Download the font file from https://www.dafont.com/04b-03.font and rename it to 04B03.ttf
     id: b03
     size: 8
 
@@ -71,8 +76,8 @@ display:
     lambda: |-
       auto time = id(ntp_time).now();
       it.printf(0, 0, id(b03), "%d:%d", time.hour, time.minute);
-
 ```
 
 ## License
+
 [TBD] the original library does not specify the license. This repo is consecutively not licensed yet either.
